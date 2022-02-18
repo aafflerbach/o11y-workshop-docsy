@@ -1,0 +1,66 @@
+baseURL: 'http://example.org/'
+languageCode: 'en-us'
+title: 'Splunk Observability Cloud Workshops'
+
+theme: docsy
+params:
+  version_menu: "Releases"
+  versions:
+    - version: latest
+      url: 'https://master.kubeflow.org'
+    - version: v3.14
+      url: 'https://v0-2.kubeflow.org'
+    - version: v3.12
+      url: 'https://v0-3.kubeflow.org'
+  ui:
+    breadcrumb_disable: false
+
+# contentDir: content/en
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+
+languages:
+  en:
+    title: 'Splunk Observability Cloud Workshops'
+    description: Docsy does docs
+    languageName: English
+    weight: 1
+  ja:
+    title: 'Splunk Observability Cloud Workshops'
+    description: Docsy er operativsystem for skyen
+    languageName: 日本語
+    # contentDir: content/ja
+
+menu:
+  main:
+    - identifier: Home
+      name: Home
+      #pre: <i class='fa fa-heart'></i>
+      url: /
+      weight: 1
+    - identifier: SplunkIMT
+      name: Splunk IMT
+      #pre: <i class='fa fa-heart'></i>
+      url: /imt/
+      manualLinkRelref: intro.md
+      weight: 10
+    - identifier: SplunkAPM
+      name: Splunk APM
+      #pre: <i class='fa fa-heart'></i>
+      url: /apm/
+      weight: 30
+    - identifier: SplunkRUM
+      name: Splunk RUM
+      #pre: <i class='fa fa-heart'></i>
+      url: /imt/
+      weight: 40
+    - identifier: Synthetics
+      name: Synthetics
+      #pre: <i class='fa fa-heart'></i>
+      url: /imt/
+      weight: 50
+    - identifier: Resources
+      name: Resources
+      #pre: <i class='fa fa-heart'></i>
+      url: /imt/
+      weight: 60
