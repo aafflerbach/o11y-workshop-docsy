@@ -14,6 +14,13 @@ weight: 35
 
 You will need to obtain your Access Token[^1] from the Splunk UI. You can find the workshop Access Token by clicking **>>** bottom left and then selecting **Settings → Access Tokens**.
 
+{{< alert title="Warning" color="warning" >}}
+You can only embed external content from a server when its `X-Frame-Options` is not set or if it specifically allows embedding for your site. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options for details.
+
+There are several tools you can use to check if a website can be embedded via iframe - e.g.: https://gf.dev/x-frame-options-test. Be aware that when this test says "Couldn’t find the X-Frame-Options header 
+in the response headers." you __CAN__ embed it, but when the test says "Great! X-Frame-Options header was found in the HTTP response headers as highlighted below.", you __CANNOT__ - unless it has been explicitly enabled for your site.
+{{< /alert >}}
+
 Expand the workshop token that your host has instructed you to use e.g. **O11y-Workshop-ACCESS**, then click on **Show Token** to expose your token. Click the **Copy**{: .label-button  .sfx-ui-button-grey} button to copy to clipboard. Please do not use the **Default** token!
 
 ![Access Token](../images/otel/access-token.png)
@@ -30,24 +37,20 @@ You will also need to obtain the name of the Realm[^2] for your Splunk account. 
 
 Create the `ACCESS_TOKEN` and `REALM` environment variables to use in the proceeding Helm install command. For instance, if your realm is `us1`, you would type `export REALM=us1` and for `eu0` type `export REALM=eu0`.
 
-=== "Shell Command"
-
-    ```
+{{< tabpane langEqualsHeader=true >}}
+  {{< tab header="Shell" >}}
     export ACCESS_TOKEN=<replace_with_O11y-Workshop-ACCESS_token>
     export REALM=<replace_with_splunk_realm>
-    ```
+  {{< /tab >}}
+{{< /tabpane >}}
 
 Install the OpenTelemetry Collector using the Splunk Helm chart. First, add the Splunk Helm chart repository to Helm and update.
 
-=== "Shell Command"
-
-    ```
+{{< tabpane >}}
+  {{< tab header="Shell" lang="shell" >}}
     helm repo add splunk-otel-collector-chart https://signalfx.github.io/splunk-otel-collector-chart && helm repo update
-    ```
-
-=== "Example Output"
-
-    ```
+  {{< /tab >}}
+  {{< tab header="Example Output" lang="text" >}}
     Using ACCESS_TOKEN=<redacted>
     Using REALM=eu0
     "splunk-otel-collector-chart" has been added to your repositories
@@ -56,7 +59,8 @@ Install the OpenTelemetry Collector using the Splunk Helm chart. First, add the 
     Hang tight while we grab the latest from your chart repositories...
     ...Successfully got an update from the "splunk-otel-collector-chart" chart repository
     Update Complete. ⎈Happy Helming!⎈
-    ```
+  {{< /tab >}}
+{{< /tabpane >}}
 
 Install the OpenTelemetry Collector Helm chart with the following commands, do **NOT** edit this:
 
