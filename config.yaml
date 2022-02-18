@@ -15,6 +15,13 @@ params:
   ui:
     breadcrumb_disable: false
 
+markup:
+  highlight:
+    style: 'tango'
+  goldmark:
+    renderer:
+      unsafe: true
+
 # contentDir: content/en
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: false
