@@ -14,6 +14,7 @@ params:
       url: 'https://v0-3.kubeflow.org'
   ui:
     breadcrumb_disable: false
+    navbar_logo: true
 
 markup:
   highlight:
